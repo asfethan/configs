@@ -204,27 +204,27 @@ main = do
 			,startupHook = windows (viewOnScreen 1 "vms")
 --			,logHook		= ewmhDesktopsLogHook >> dynamicLogWithPP ( myPP mainSbar )
 			,logHook		= ewmhDesktopsLogHook >> dynamicLogWithPP xmobarPP
-														{ ppOutput = hPutStrLn mainSbar
-														, ppTitle				= wrap (" <fc=#586e75>«</fc><fc=#eee8d5> ") (" </fc><fc=#586e75>»</fc>") . shorten 75
-														, ppCurrent 			= wrap ("<fc=" ++ myBgColor ++ "," ++ myFgHiColor ++ "> ") " </fc>"
-														, ppVisible 			= wrap " " " "
-														, ppHidden				= wrap "<fc=#dfdfdf,#073642> " " </fc>"
-														, ppHiddenNoWindows		= wrap "<fc=#586e75,#002b36> " " </fc>"
-														, ppUrgent				= wrap "<fc=#fdf6e3,#cb4b16> " " </fc>"
-														, ppSep					= ""
-														, ppWsSep				= ""
-														, ppLayout				= wrap "<fc=,#073642> </fc><fc=#eee8d5> " " </fc><fc=,#073642> </fc> " .
-															(\x -> case x of
-																"Magrid"	-> "MGRD"
-																"Tall"		-> "TALL"
-																"Mirror"	-> "MIRR"
-																"Full"		-> "FULL"
-																"TrueFull"	-> "TFUL"
-																"Tabbed"	-> "TABB"
-																"Grid"		-> "GRID"
-																"GIMP"		->"^GIMP"
-															)
-														}
+				{ ppOutput = hPutStrLn mainSbar
+				, ppTitle				= wrap (" <fc=#586e75>«</fc><fc=#eee8d5> ") (" </fc><fc=#586e75>»</fc>") . shorten 75
+				, ppCurrent 			= wrap ("<fc=" ++ myBgColor ++ "," ++ myFgHiColor ++ "> ") " </fc>"
+				, ppVisible 			= wrap " " " "
+				, ppHidden				= wrap "<fc=#dfdfdf,#073642> " " </fc>"
+				, ppHiddenNoWindows		= wrap "<fc=#586e75,#002b36> " " </fc>"
+				, ppUrgent				= wrap "<fc=#fdf6e3,#cb4b16> " " </fc>"
+				, ppSep					= ""
+				, ppWsSep				= ""
+				, ppLayout				= wrap "<fc=,#073642> </fc><fc=#eee8d5> " " </fc><fc=,#073642> </fc> " .
+					(\x -> case x of
+						"Magrid"	-> "MGRD"
+						"Tall"		-> "TALL"
+						"Mirror"	-> "MIRR"
+						"Full"		-> "FULL"
+						"TrueFull"	-> "TFUL"
+						"Tabbed"	-> "TABB"
+						"Grid"		-> "GRID"
+						"GIMP"		->"^GIMP"
+					)
+				}
 
 			,terminal 		= "xterm"
 			,normalBorderColor	= myFgNoColor
