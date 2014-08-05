@@ -1,0 +1,39 @@
+set fileencodings=utf-8,cp1250,latin1,iso8859-2
+set backupdir=/home/jpetras/tmp/vim/
+set directory=/home/jpetras/tmp/vim/
+
+" search
+set ignorecase		" ignore case when searching
+set smartcase
+set showmatch		" show matching bracets when text indicator is over thema
+set hlsearch
+
+" bells
+set novisualbell
+
+" indenting & tab width
+set smartindent		 
+set autoindent
+"set shiftwidth=4
+"set tabstop=4
+set smarttab
+
+" folding
+set foldmethod=marker
+
+" statusline & ruler
+set noruler
+"set rulerformat=[L:%l/%L][%p%%]
+set showmode
+set showcmd
+set pastetoggle=<F2>
+set laststatus=2
+set statusline=%F\ %r\ %m\ %y\ [%{&ff}]\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}\ %=[lin\ %l:%c/%L]\ [pos\ %o]\ [dec/hex\ %b/0x%B]\ [%p%%]
+
+" appearance
+set background=light
+syntax on
+
+color peachpuff
+set cursorline
+hi cursorline cterm=NONE ctermbg=black

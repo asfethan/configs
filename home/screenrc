@@ -1,0 +1,8 @@
+defscrollback 10000
+hardstatus alwayslastline
+hardstatus string '%{= yw} %{= kw} %Y-%m-%d %c (%{=b .w}%l%{= .w}) %{=b .y}%H  %{= .w}%-Lw%{= Wk} %n%f %t %{= kw}%+Lw'
+shelltitle "$ |bash"
+startup_message off
+nethack on
+defmonitor on
+vbell off
