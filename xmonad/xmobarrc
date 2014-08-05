@@ -1,0 +1,23 @@
+Config { font = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-iso10646-1"
+       , borderColor = "#073642"
+       , border = BottomBM 0 
+       , bgColor = "#002b36"
+       , fgColor = "#eee8d5"
+       , position = Static { xpos = 0 , ypos = 0, width = 1920, height = 20 }
+       , lowerOnStart = True
+       , commands = [ Run Cpu ["-t", "<fc=#839496,#002b36> cpu </fc><total><fc=#586e75,#002b36>% </fc>", "-w", "3", "-L","10","-H","50", "--low", "#eee8d5,#002b36", "--normal","#d1dfa3,#002b36","--high","#df986e,#002b36"] 10
+       				, Run ThermalZone 0 ["-t", "<fc=#839496,#002b36> t0 </fc><temp><fc=#586e75,#002b36>°C </fc>", "-w", "3", "-L","43","-H","49", "--low", "#eee8d5,#002b36", "--normal","#d1dfa3,#002b36","--high","#df986e,#002b36"] 10
+       				, Run ThermalZone 1 ["-t", "<fc=#839496,#002b36> t1 </fc><temp><fc=#586e75,#002b36>°C </fc>", "-w", "3", "-L","41","-H","48", "--low", "#eee8d5,#002b36", "--normal","#d1dfa3,#002b36","--high","#df986e,#002b36"] 10
+       				, Run CoreTemp ["-t", "<fc=#839496,#002b36> ct0 </fc><core0><fc=#586e75,#002b36>°C </fc>", "-w", "5", "-L","47","-H","49", "--low", "#eee8d5,#002b36", "--normal","#d1dfa3,#002b36","--high","#df986e,#002b36"] 10
+                    , Run Memory ["-t", "<fc=#839496,#002b36>  mem </fc><used><fc=#586e75,#002b36>M </fc>", "-w", "4", "-L","1500","-H","2800", "--low", "#eee8d5,#002b36", "--normal","#d1dfa3,#002b36","--high","#df986e,#002b36"] 10
+                    , Run Network "eth0" ["-t", "<fc=#839496,#002b36>  eth0 </fc><rx><fc=#586e75,#002b36>K </fc><tx><fc=#586e75,#002b36>K  </fc>", "-w", "8", "-L","99","-H","999", "--low", "#eee8d5,#002b36", "--normal","#d1dfa3,#002b36","--high","#df986e,#002b36"] 10
+                    , Run Weather "LZIB" ["-t", "<fc=#839496,#002b36>  wea  </fc><fc=#eee8d5,#002b36>Bratislava </fc><tempC><fc=#586e75,#002b36>°C </fc>", "-w", "3", "-L","10","-H","26", "--low", "#d1dfff,#002b36", "--normal","#d1dfa3,#002b36","--high","#df986e,#002b36"] 30000
+					, Run Kbd [("us", "US"), ("sk", "SK")]
+    		    	, Run Date "%H:%M" "time" 10
+    		    	, Run Date "%a %d.%m.%Y" "date" 10
+					, Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{<fc=,#073643> </fc><fc=,#002b36> </fc>%thermal0%%thermal1%%coretemp%%cpu%%memory%%eth0%<fc=#002b36,#fdf6e3> %time% </fc><fc=#002b36,#eee8d5> %date% </fc><fc=#839496,#002b36>   kbd </fc><fc=#eee8d5,#002b36>%kbd% </fc>%LZIB%<fc=,#073642> </fc>"
+       }
